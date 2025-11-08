@@ -1,50 +1,68 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version: 0.0.0 → 1.0.0 (initial creation)
+- Principles: All new
+- Added sections: Project Identity, Principles (5), Governance
+- Templates requiring updates: ⚠ pending (templates directory not yet created)
+- Follow-up TODOs: None
+-->
 
-## Core Principles
+# Project Constitution
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+**Project:** vid-compressor  
+**Version:** 1.0.0  
+**Ratified:** 2025-01-27  
+**Last Amended:** 2025-01-27
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+## Project Identity
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+vid-compressor is a hobby project focused on building a video compression tool. The project prioritizes speed of iteration and working output over enterprise-grade processes and architectural perfection.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+## Principles
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Principle 1: Ship Fast, Iterate Faster
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rule:** Prefer shipping working code quickly over perfect solutions. If something works well enough for the current use case, ship it. Refactor only when there's a concrete problem to solve, not theoretical future needs.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Rationale:** Speed of iteration is the primary constraint. Working code that solves the problem today is more valuable than perfect code that solves hypothetical problems tomorrow. This is a hobby project, not production infrastructure.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Principle 2: Minimal Process Overhead
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Rule:** Avoid adding process, documentation, or ceremony unless it directly accelerates development. No mandatory code reviews, extensive planning docs, or approval workflows. Make decisions quickly and move on.
+
+**Rationale:** Process exists to serve output, not the other way around. For a solo hobby project, process overhead slows iteration without providing benefits. Trust quick judgment calls.
+
+### Principle 3: Practical Over Perfect
+
+**Rule:** Choose the simplest solution that works. Prefer libraries over custom implementations, existing patterns over novel architectures, and quick fixes over comprehensive refactors. Technical debt is acceptable if it doesn't block progress.
+
+**Rationale:** Perfect is the enemy of done. A working feature with technical debt is better than a perfect feature that never ships. Refactor when debt actually causes problems, not preemptively.
+
+### Principle 4: Output-Driven Decisions
+
+**Rule:** Every decision must answer: "Does this help ship faster or improve the end result?" If the answer is no, skip it. Prefer tools and patterns that reduce friction, even if they're not "best practice" by enterprise standards.
+
+**Rationale:** Focus on what users experience, not internal code quality metrics. A feature that works is better than code that's beautifully structured but incomplete. Measure success by shipped features, not code coverage or architecture scores.
+
+### Principle 5: Quick Decisions, Easy Reversals
+
+**Rule:** Make technology and design decisions quickly. Prefer reversible choices (e.g., library selection, file structure) over irreversible ones. If a decision proves wrong, change it immediately rather than working around it.
+
+**Rationale:** Analysis paralysis kills iteration speed. Most decisions in a hobby project are easily reversible. It's faster to try something and pivot than to research extensively upfront. Wrong decisions teach faster than no decisions.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Amendment Procedure
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+This constitution may be amended at any time by updating this file. Changes should reflect evolving project needs while maintaining the core focus on iteration speed.
+
+### Versioning
+
+Version numbers follow semantic versioning:
+- **MAJOR:** Backward-incompatible principle changes or removals
+- **MINOR:** New principles added or existing principles materially expanded
+- **PATCH:** Clarifications, wording improvements, or non-semantic refinements
+
+### Compliance
+
+This constitution serves as guidance, not strict enforcement. Principles may be violated when pragmatically necessary, but violations should be acknowledged and the constitution updated if the exception becomes the rule.
