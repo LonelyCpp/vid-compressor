@@ -1,8 +1,8 @@
 <!--
 Sync Impact Report:
-- Version: 0.0.0 → 1.0.0 (initial creation)
-- Principles: All new
-- Added sections: Project Identity, Principles (5), Governance
+- Version: 1.0.0 → 1.1.0 (added technology stack principles)
+- Principles: Added Principle 6 (Next.js/React), Principle 7 (shadcn UI)
+- Added sections: None (principles added to existing section)
 - Templates requiring updates: ⚠ pending (templates directory not yet created)
 - Follow-up TODOs: None
 -->
@@ -10,7 +10,7 @@ Sync Impact Report:
 # Project Constitution
 
 **Project:** vid-compressor  
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Ratified:** 2025-01-27  
 **Last Amended:** 2025-01-27
 
@@ -49,6 +49,18 @@ vid-compressor is a hobby project focused on building a video compression tool. 
 **Rule:** Make technology and design decisions quickly. Prefer reversible choices (e.g., library selection, file structure) over irreversible ones. If a decision proves wrong, change it immediately rather than working around it.
 
 **Rationale:** Analysis paralysis kills iteration speed. Most decisions in a hobby project are easily reversible. It's faster to try something and pivot than to research extensively upfront. Wrong decisions teach faster than no decisions.
+
+### Principle 6: Next.js and React Stack
+
+**Rule:** Always use Next.js and React as the core framework. This is the established project setup and must not be changed. All new features and components must be built using Next.js App Router patterns and React components.
+
+**Rationale:** Consistency in the technology stack eliminates decision fatigue and reduces context switching. The project is already configured with Next.js and React, and changing this would require significant refactoring with no benefit to iteration speed.
+
+### Principle 7: shadcn/ui for UI Components
+
+**Rule:** Use shadcn/ui for all UI components. Prefer existing shadcn components over custom implementations. Add new shadcn components as needed rather than building from scratch.
+
+**Rationale:** shadcn/ui provides high-quality, customizable components that integrate seamlessly with the existing setup. Using it eliminates the need to build common UI patterns from scratch, dramatically accelerating development while maintaining design flexibility.
 
 ## Governance
 
