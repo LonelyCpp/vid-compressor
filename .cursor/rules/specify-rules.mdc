@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2025-11-08
 
 ## Active Technologies
+- TypeScript 5, React 19.2.0, Next.js 16.0.1 + Next.js, React, mediabunny (^1.24.4), shadcn/ui, Tailwind CSS (001-video-compression)
+- N/A (client-side processing only, compressed files in browser memory) (001-video-compression)
 
 - TypeScript 5, React 19.2.0, Next.js 16.0.1 + Next.js, React, shadcn/ui, Tailwind CSS, Biome (linting) (001-file-upload)
 
@@ -22,6 +24,7 @@ npm test && npm run lint
 TypeScript 5, React 19.2.0, Next.js 16.0.1: Follow standard conventions
 
 ## Recent Changes
+- 001-video-compression: Added TypeScript 5, React 19.2.0, Next.js 16.0.1 + Next.js, React, mediabunny (^1.24.4), shadcn/ui, Tailwind CSS
 
 - 001-file-upload: Added TypeScript 5, React 19.2.0, Next.js 16.0.1 + Next.js, React, shadcn/ui, Tailwind CSS, Biome (linting)
 
