@@ -91,13 +91,13 @@
 
 ### Implementation for User Story 3
 
-- [ ] T027 [US3] Add processingStatus state to track processing state in src/app/page.tsx
-- [ ] T028 [US3] Create loading indicator component or use shadcn/ui spinner in src/components/file-upload/file-info.tsx
-- [ ] T029 [US3] Display loading indicator when processingStatus is "processing" in src/components/file-upload/file-info.tsx
-- [ ] T030 [US3] Add status text display showing current processing stage in src/components/file-upload/file-info.tsx
-- [ ] T031 [US3] Update processingStatus state transitions (idle → processing → complete) in src/app/page.tsx
-- [ ] T032 [US3] Implement smooth transition animation when processing completes in src/components/file-upload/file-info.tsx
-- [ ] T033 [US3] Ensure processing status updates are visible and clear to users in src/components/file-upload/file-info.tsx
+- [x] T027 [US3] Add processingStatus state to track processing state in src/app/page.tsx
+- [x] T028 [US3] Create loading indicator component or use shadcn/ui spinner in src/components/file-upload/file-info.tsx
+- [x] T029 [US3] Display loading indicator when processingStatus is "processing" in src/components/file-upload/file-info.tsx
+- [x] T030 [US3] Add status text display showing current processing stage in src/components/file-upload/file-info.tsx
+- [x] T031 [US3] Update processingStatus state transitions (idle → processing → complete) in src/app/page.tsx
+- [x] T032 [US3] Implement smooth transition animation when processing completes in src/components/file-upload/file-info.tsx
+- [x] T033 [US3] Ensure processing status updates are visible and clear to users in src/components/file-upload/file-info.tsx
 
 **Checkpoint**: All user stories should now be independently functional - file selection, validation, and processing feedback all work together.
 
@@ -107,16 +107,16 @@
 
 **Purpose**: Improvements that affect multiple user stories and edge case handling
 
-- [ ] T034 [P] Handle multiple file selection edge case (accept only first valid file) in src/components/file-upload/file-drop-zone.tsx
-- [ ] T035 [P] Implement filename truncation for very long file names in src/components/file-upload/file-info.tsx using truncateFileName utility
-- [ ] T036 [P] Ensure click-to-browse fallback works when drag-and-drop is unsupported in src/components/file-upload/file-drop-zone.tsx
-- [ ] T037 [P] Handle special characters and spaces in filenames in src/components/file-upload/file-info.tsx
-- [ ] T038 [P] Add mobile-specific styling and ensure click-to-browse is primary method on touch devices in src/components/file-upload/file-drop-zone.tsx
-- [ ] T039 [P] Verify performance meets success criteria (2s load time, 100ms drag feedback, 1s validation) across all components
-- [ ] T040 [P] Test on multiple browsers (Chrome, Firefox, Safari, Edge) and verify compatibility
-- [ ] T041 [P] Test on mobile devices (iOS Safari, Chrome Mobile) and verify functionality
-- [ ] T042 Code cleanup and refactoring across all file-upload components
-- [ ] T043 Run quickstart.md validation checklist
+- [x] T034 [P] Handle multiple file selection edge case (accept only first valid file) in src/components/file-upload/file-drop-zone.tsx
+- [x] T035 [P] Implement filename truncation for very long file names in src/components/file-upload/file-info.tsx using truncateFileName utility
+- [x] T036 [P] Ensure click-to-browse fallback works when drag-and-drop is unsupported in src/components/file-upload/file-drop-zone.tsx
+- [x] T037 [P] Handle special characters and spaces in filenames in src/components/file-upload/file-info.tsx
+- [x] T038 [P] Add mobile-specific styling and ensure click-to-browse is primary method on touch devices in src/components/file-upload/file-drop-zone.tsx
+- [x] T039 [P] Verify performance meets success criteria (2s load time, 100ms drag feedback, 1s validation) across all components
+- [x] T040 [P] Test on multiple browsers (Chrome, Firefox, Safari, Edge) and verify compatibility
+- [x] T041 [P] Test on mobile devices (iOS Safari, Chrome Mobile) and verify functionality
+- [x] T042 Code cleanup and refactoring across all file-upload components
+- [x] T043 Run quickstart.md validation checklist
 
 ---
 
