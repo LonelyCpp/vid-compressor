@@ -1,6 +1,6 @@
 /**
  * Component Interfaces: Video Compression
- * 
+ *
  * TypeScript interfaces defining component contracts for the video compression feature.
  * These interfaces ensure type safety and define the expected behavior of components.
  */
@@ -50,7 +50,7 @@ export interface CompressionResultsProps {
 export interface VideoCompressor {
   compress: (
     file: File,
-    onProgress?: (progress: number) => void
+    onProgress?: (progress: number) => void,
   ) => Promise<Blob | File>;
   getCompressionConfig: () => CompressionConfig;
 }
@@ -88,4 +88,3 @@ export interface CompressionResult {
   originalSize: number;
   compressedSize?: number;
 }
-

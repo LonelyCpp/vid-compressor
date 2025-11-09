@@ -7,57 +7,64 @@ import type { CompressionResultsProps } from "@/lib/types/video-compression";
  * Compression Results Component
  * Displays compression results including original size, compressed size, and savings
  */
-export function CompressionResults({ compressedVideo, onDownload, onRetry }: CompressionResultsProps) {
+export function CompressionResults({
+  compressedVideo,
+  onDownload,
+  onRetry,
+}: CompressionResultsProps) {
   const handleDownload = () => {
     if (!compressedVideo.compressedFile) return;
 
     const url = URL.createObjectURL(compressedVideo.compressedFile);
     const a = document.createElement("a");
     a.href = url;
-    
+
     // Create filename with "-compressed" suffix
     const originalName = compressedVideo.name;
     const nameWithoutExt = originalName.replace(/\.[^/.]+$/, "");
     const extension = originalName.match(/\.[^/.]+$/) || ".mp4";
     a.download = `${nameWithoutExt}-compressed${extension}`;
-    
+
     a.click();
     URL.revokeObjectURL(url);
+    onDownload?.();
   };
 
   return (
-    <div className="w-full space-y-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6">
+    <div className="w-full space-y-4 rounded-2xl border border-border bg-card/70 p-6 shadow-sm backdrop-blur">
       <div className="space-y-3">
-        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-          Compression Results
+        <h3 className="text-lg font-semibold text-foreground">
+          Your smaller video is ready
         </h3>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {/* Original Size */}
           <div className="space-y-1">
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Original Size</p>
-            <p className="text-base font-medium text-zinc-900 dark:text-zinc-50">
+            <p className="text-sm text-muted-foreground">
+              Original size (before)
+            </p>
+            <p className="text-base font-medium text-foreground">
               {formatFileSize(compressedVideo.originalSize)}
             </p>
           </div>
 
           {/* Compressed Size */}
           <div className="space-y-1">
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Compressed Size</p>
-            <p className="text-base font-medium text-zinc-900 dark:text-zinc-50">
+            <p className="text-sm text-muted-foreground">New size (after)</p>
+            <p className="text-base font-medium text-foreground">
               {formatFileSize(compressedVideo.compressedSize)}
             </p>
           </div>
         </div>
 
         {/* Size Savings - Highlighted */}
-        <div className="rounded-md bg-green-50 dark:bg-green-900/20 p-4 space-y-2">
-          <p className="text-sm font-medium text-green-900 dark:text-green-100">Size Savings</p>
-          <div className="flex items-baseline gap-2">
-            <p className="text-2xl font-bold text-green-700 dark:text-green-400">
+        <div className="space-y-2 rounded-lg bg-emerald-500/10 p-4 text-sm text-emerald-700 shadow-inner dark:bg-emerald-400/10 dark:text-emerald-200">
+          <p className="font-medium uppercase tracking-wide">Space saved</p>
+          <div className="flex items-baseline gap-2 text-emerald-700 dark:text-emerald-200">
+            <p className="text-2xl font-bold">
               {formatFileSize(compressedVideo.sizeSavings)}
             </p>
-            <p className="text-lg font-semibold text-green-600 dark:text-green-500">
+            <p className="text-lg font-semibold">
               ({compressedVideo.sizeSavingsPercent.toFixed(1)}%)
             </p>
           </div>
@@ -65,30 +72,32 @@ export function CompressionResults({ compressedVideo, onDownload, onRetry }: Com
 
         {/* Processing Time */}
         {compressedVideo.processingTime !== null && (
-          <div className="text-sm text-zinc-600 dark:text-zinc-400">
-            Processing time: {(compressedVideo.processingTime / 1000).toFixed(1)}s
+          <div className="text-sm text-muted-foreground">
+            Time taken: {(compressedVideo.processingTime / 1000).toFixed(1)}{" "}
+            seconds
           </div>
         )}
       </div>
 
       {/* Actions */}
-      <div className="flex gap-3 pt-2">
+      <div className="flex flex-col gap-3 pt-2 sm:flex-row">
         <button
+          type="button"
           onClick={handleDownload}
-          className="flex-1 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:flex-1"
         >
-          Download Compressed Video
+          Download the smaller video
         </button>
         {onRetry && (
           <button
+            type="button"
             onClick={onRetry}
-            className="rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2"
+            className="rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            Retry
+            Try again
           </button>
         )}
       </div>
     </div>
   );
 }
-

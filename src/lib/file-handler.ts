@@ -1,5 +1,8 @@
 import type { FileValidationResult } from "./types/file-upload";
-import { ALLOWED_VIDEO_TYPES, DEFAULT_MAX_FILE_SIZE } from "./types/file-upload";
+import {
+  ALLOWED_VIDEO_TYPES,
+  DEFAULT_MAX_FILE_SIZE,
+} from "./types/file-upload";
 
 /**
  * Validates a file against type and size constraints
@@ -11,7 +14,7 @@ import { ALLOWED_VIDEO_TYPES, DEFAULT_MAX_FILE_SIZE } from "./types/file-upload"
 export function validateFile(
   file: File,
   maxSize: number = DEFAULT_MAX_FILE_SIZE,
-  allowedTypes: readonly string[] = ALLOWED_VIDEO_TYPES
+  allowedTypes: readonly string[] = ALLOWED_VIDEO_TYPES,
 ): FileValidationResult {
   // Check file type
   if (!allowedTypes.includes(file.type)) {
@@ -42,7 +45,8 @@ export function validateFile(
 export function formatFileSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  if (bytes < 1024 * 1024 * 1024)
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
   return `${(bytes / (1024 * 1024 * 1024)).toFixed(1)} GB`;
 }
 
@@ -52,7 +56,10 @@ export function formatFileSize(bytes: number): string {
  * @param maxLength - Maximum length for the filename (default: 50)
  * @returns Truncated filename with ellipsis if needed
  */
-export function truncateFileName(fileName: string, maxLength: number = 50): string {
+export function truncateFileName(
+  fileName: string,
+  maxLength: number = 50,
+): string {
   if (fileName.length <= maxLength) return fileName;
 
   // Find the last dot to preserve extension
@@ -76,4 +83,3 @@ export function truncateFileName(fileName: string, maxLength: number = 50): stri
 
 // Re-export constants for convenience
 export { ALLOWED_VIDEO_TYPES, DEFAULT_MAX_FILE_SIZE };
-

@@ -68,7 +68,7 @@ export interface FileHandler {
   validateFile: (
     file: File,
     maxSize: number,
-    allowedTypes: string[]
+    allowedTypes: string[],
   ) => FileValidationResult;
   formatFileSize: (bytes: number) => string;
   truncateFileName: (fileName: string, maxLength: number) => string;

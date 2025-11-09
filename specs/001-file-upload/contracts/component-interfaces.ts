@@ -1,6 +1,6 @@
 /**
  * Component Interfaces: File Upload Landing Page
- * 
+ *
  * TypeScript interfaces defining component contracts for the file upload feature.
  * These interfaces ensure type safety and define the expected behavior of components.
  */
@@ -65,7 +65,11 @@ export interface FileValidationResult {
  * Utility functions for file handling
  */
 export interface FileHandler {
-  validateFile: (file: File, maxSize: number, allowedTypes: string[]) => FileValidationResult;
+  validateFile: (
+    file: File,
+    maxSize: number,
+    allowedTypes: string[],
+  ) => FileValidationResult;
   formatFileSize: (bytes: number) => string;
   truncateFileName: (fileName: string, maxLength: number) => string;
 }
@@ -78,7 +82,7 @@ export const ALLOWED_VIDEO_TYPES = [
   "video/mp4",
   "video/quicktime", // MOV
   "video/x-msvideo", // AVI
-  "video/webm"
+  "video/webm",
 ] as const;
 
 /**
@@ -86,4 +90,3 @@ export const ALLOWED_VIDEO_TYPES = [
  * 500MB in bytes
  */
 export const DEFAULT_MAX_FILE_SIZE = 500 * 1024 * 1024; // 500MB
-

@@ -1,8 +1,7 @@
 "use client";
 
-import type { FileInfoProps } from "@/lib/types/file-upload";
 import { formatFileSize, truncateFileName } from "@/lib/file-handler";
-import { cn } from "@/lib/utils";
+import type { FileInfoProps } from "@/lib/types/file-upload";
 
 export function FileInfo({ file, onClear }: FileInfoProps) {
   const displayName = truncateFileName(file.name, 50);
@@ -18,7 +17,10 @@ export function FileInfo({ file, onClear }: FileInfoProps) {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              role="img"
+              aria-hidden="true"
             >
+              <title>Video file icon</title>
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -26,16 +28,22 @@ export function FileInfo({ file, onClear }: FileInfoProps) {
                 d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
               />
             </svg>
-            <h3 className="font-semibold text-card-foreground">{displayName}</h3>
+            <h3 className="font-semibold text-card-foreground">
+              {displayName}
+            </h3>
           </div>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span>{formattedSize}</span>
             <span className="capitalize">{file.type.split("/")[1]}</span>
             {file.validationStatus === "valid" && (
-              <span className="text-green-600 dark:text-green-400 transition-opacity">✓ Valid</span>
+              <span className="text-green-600 dark:text-green-400 transition-opacity">
+                ✓ Valid
+              </span>
             )}
             {file.validationStatus === "invalid" && (
-              <span className="text-destructive transition-opacity">✗ Invalid</span>
+              <span className="text-destructive transition-opacity">
+                ✗ Invalid
+              </span>
             )}
           </div>
           {file.validationError && (
@@ -57,8 +65,9 @@ export function FileInfo({ file, onClear }: FileInfoProps) {
         </div>
         {onClear && (
           <button
+            type="button"
             onClick={onClear}
-            className="rounded-md p-1 text-muted-foreground hover:text-foreground transition-colors"
+            className="rounded-md p-1 text-muted-foreground transition-colors hover:text-foreground"
             aria-label="Clear file"
           >
             <svg
@@ -66,7 +75,10 @@ export function FileInfo({ file, onClear }: FileInfoProps) {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              role="img"
+              aria-hidden="true"
             >
+              <title>Remove this video</title>
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -80,4 +92,3 @@ export function FileInfo({ file, onClear }: FileInfoProps) {
     </div>
   );
 }
-

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import type { FileDropZoneProps } from "@/lib/types/file-upload";
 import { cn } from "@/lib/utils";
 
@@ -55,18 +55,21 @@ export function FileDropZone({
   };
 
   return (
-    <div
+    <button
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
       onClick={handleClick}
+      type="button"
       className={cn(
-        "relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg transition-colors cursor-pointer",
+        "relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         isDragActive
           ? "border-primary bg-primary/5"
           : "border-border hover:border-primary/50 hover:bg-muted/50",
-        disabled && "opacity-50 cursor-not-allowed"
+        disabled && "opacity-50 cursor-not-allowed",
       )}
+      aria-label="Upload a video by dragging and dropping or selecting from your device"
+      disabled={disabled}
     >
       <input
         ref={fileInputRef}
@@ -78,11 +81,14 @@ export function FileDropZone({
       />
       <div className="flex flex-col items-center justify-center gap-4 p-8 text-center">
         <svg
-          className="w-12 h-12 text-muted-foreground"
+          className="h-12 w-12 text-muted-foreground"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          role="img"
+          aria-hidden="true"
         >
+          <title>Illustration of a cloud and arrow indicating upload</title>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -92,17 +98,16 @@ export function FileDropZone({
         </svg>
         <div className="space-y-2">
           <p className="text-lg font-medium text-foreground">
-            {isDragActive ? "Drop your video file here" : "Drag and drop your video file"}
+            {isDragActive
+              ? "Drop your video file here"
+              : "Drag and drop your video file"}
           </p>
-          <p className="text-sm text-muted-foreground">
-            or click to browse
-          </p>
+          <p className="text-sm text-muted-foreground">or click to browse</p>
         </div>
         <p className="text-xs text-muted-foreground">
           Supported formats: MP4, MOV, AVI, WebM
         </p>
       </div>
-    </div>
+    </button>
   );
 }
-
