@@ -26,7 +26,7 @@ async function initMediabunny() {
       mediabunny = await import("mediabunny");
     } catch (_error) {
       throw new Error(
-        "Failed to load mediabunny library. Please ensure it is installed.",
+        "Failed to load mediabunny library. Please ensure it is installed."
       );
     }
   }
@@ -50,7 +50,7 @@ export function getCompressionConfig(): CompressionConfig {
  */
 export function calculateSizeSavings(
   originalSize: number,
-  compressedSize: number,
+  compressedSize: number
 ): { absolute: number; percent: number } {
   if (originalSize <= 0) {
     return { absolute: 0, percent: 0 };
@@ -70,7 +70,7 @@ export function calculateSizeSavings(
  */
 export async function compress(
   file: File,
-  onProgress?: (progress: number) => void,
+  onProgress?: (progress: number) => void
 ): Promise<Blob | File> {
   if (typeof window === "undefined") {
     throw new Error("Video compression is only available in the browser");
@@ -117,7 +117,7 @@ export async function compress(
       input,
       output,
       video: {
-        codec: "avc" as string, // H.264 codec
+        codec: "hevc" as const, // H.264 codec
         bitrate: mb.QUALITY_MEDIUM, // Use quality preset for compression
       },
     });
@@ -158,17 +158,17 @@ export async function compress(
     // Provide more specific error messages
     if (errorMessage.includes("codec") || errorMessage.includes("format")) {
       throw new Error(
-        "Unsupported video format or codec. Please try a different video file.",
+        "Unsupported video format or codec. Please try a different video file."
       );
     }
     if (errorMessage.includes("memory") || errorMessage.includes("Memory")) {
       throw new Error(
-        "File is too large to compress. Please try a smaller video file.",
+        "File is too large to compress. Please try a smaller video file."
       );
     }
     if (errorMessage.includes("corrupt") || errorMessage.includes("invalid")) {
       throw new Error(
-        "Video file appears to be corrupted. Please try a different file.",
+        "Video file appears to be corrupted. Please try a different file."
       );
     }
 
