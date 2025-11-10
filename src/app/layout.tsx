@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
 import { ThemeProvider } from "next-themes";
 
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { Header } from "@/components/layout/header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,18 +38,8 @@ export default function RootLayout({
           storageKey="vid-compressor-theme"
         >
           <div className="flex min-h-screen flex-col bg-background text-foreground">
-            <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
-              <div className="mx-auto flex w-full max-w-[90%] items-center justify-between px-4 py-4 md:px-8 lg:px-12 xl:max-w-[80%]">
-                <Link
-                  href="/"
-                  className="text-sm font-semibold uppercase tracking-wide text-primary"
-                >
-                  Video Compression For Dummies
-                </Link>
-                <ThemeToggle aria-label="Toggle color theme" />
-              </div>
-            </header>
-            <div className="flex-1">{children}</div>
+            <Header />
+            <main className="flex-1">{children}</main>
           </div>
         </ThemeProvider>
       </body>

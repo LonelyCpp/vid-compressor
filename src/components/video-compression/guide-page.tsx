@@ -199,110 +199,26 @@ export function GuidePage() {
   };
 
   return (
-    <div className="space-y-12 py-16">
-      <section className="space-y-4">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-          Friendly how-to guide
-        </p>
+    <div className="space-y-10 pb-16 pt-12 sm:space-y-12 sm:pb-20 sm:pt-16">
+      <section className="space-y-3 sm:space-y-4">
         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Video Compression For Dummies
         </h1>
         <p className="max-w-3xl text-lg text-muted-foreground">
-          Welcome! This page walks you through getting a big video down to a
-          shareable size without needing any technical know-how. We keep the
-          language plain so you always understand the next click.
-        </p>
-        <p className="max-w-3xl text-base text-muted-foreground">
-          When we say{" "}
-          <span className="font-semibold text-foreground">compression</span>, we
-          simply mean{" "}
-          <span className="font-semibold text-foreground">
-            making the file smaller
-          </span>{" "}
-          so it emails, uploads, and downloads faster while staying clear to
-          watch.
+          Shrink your video files quickly and easily—no technical knowledge
+          required.
         </p>
       </section>
 
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] xl:grid-cols-[minmax(0,1.75fr)_minmax(0,1fr)]">
-        <article className="space-y-8 rounded-2xl border border-border bg-card/60 p-6 shadow-sm backdrop-blur">
-          <h2 className="text-2xl font-semibold text-foreground">
-            Follow these simple steps
-          </h2>
-          <ol className="space-y-5 text-base leading-relaxed text-muted-foreground marker:text-primary [&>li]:space-y-2 [&>li]:rounded-xl [&>li]:border [&>li]:border-transparent [&>li]:bg-background/60 [&>li]:p-5 [&>li]:shadow-sm [&>li]:transition hover:[&>li]:border-primary/40">
-            <li>
-              <p className="text-lg font-semibold text-foreground">
-                1. Pick your video file
-              </p>
-              <p>
-                Tap the big drop zone to choose a video. Formats like{" "}
-                {SUPPORTED_TYPE_LABELS.map((type, index) => (
-                  <span key={type}>
-                    <span className="font-semibold text-foreground">
-                      {type}
-                    </span>
-                    {index < SUPPORTED_TYPE_LABELS.length - 1 ? ", " : ""}
-                  </span>
-                ))}{" "}
-                are all welcome — that simply refers to the kind of video your
-                phone or camera saved.
-              </p>
-            </li>
-            <li>
-              <p className="text-lg font-semibold text-foreground">
-                2. Let us run a quick check
-              </p>
-              <p>
-                We double-check the file type and size (anything up to{" "}
-                <span className="font-semibold text-foreground">
-                  {maxFileSizeLabel}
-                </span>
-                ) so you know right away if it fits. If it doesn&apos;t,
-                you&apos;ll see a friendly note explaining why.
-              </p>
-            </li>
-            <li>
-              <p className="text-lg font-semibold text-foreground">
-                3. Watch the progress bar fill up
-              </p>
-              <p>
-                Once the file is good to go, we start shrinking it. The progress
-                bar keeps you posted — no tech talk, just a clear view of how
-                far along we are.
-              </p>
-            </li>
-            <li>
-              <p className="text-lg font-semibold text-foreground">
-                4. Download and share with confidence
-              </p>
-              <p>
-                When the bar hits 100%, grab the new smaller file and share it.
-                We also show how much space you saved so you can celebrate the
-                win.
-              </p>
-            </li>
-          </ol>
-          <div className="rounded-xl border border-border bg-background/70 p-5 text-sm text-muted-foreground shadow-sm">
-            <p className="font-semibold text-foreground">
-              Need a quick refresher?
-            </p>
-            <p>
-              <span className="font-semibold text-foreground">File size</span>{" "}
-              is simply how much space your video takes up. Lower size means
-              faster uploads and quicker sharing — like mailing a lighter
-              package.
-            </p>
-          </div>
-        </article>
-
-        <aside className="space-y-6 rounded-2xl border border-border bg-card/60 p-6 shadow-md backdrop-blur">
+      <div className="grid items-start gap-8 lg:gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] xl:grid-cols-[minmax(0,1.75fr)_minmax(0,1fr)]">
+        <aside className="order-1 space-y-5 rounded-2xl border border-border bg-card/60 p-6 shadow-md backdrop-blur lg:order-2">
           <div className="space-y-2">
             <h2 className="text-2xl font-semibold text-foreground">
               Try it right here
             </h2>
             <p className="text-base text-muted-foreground">
-              Drop a video or pick one from your computer. We&apos;ll guide you
-              through every step and explain anything that sounds techy.
+              Drop a video or pick one from your device to start compressing
+              instantly.
             </p>
           </div>
           <div className="space-y-4">
