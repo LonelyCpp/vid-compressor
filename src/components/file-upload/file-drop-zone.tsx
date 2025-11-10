@@ -13,7 +13,7 @@ export function FileDropZone({
 }: FileDropZoneProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = (e: React.DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (!disabled && onDragOver) {
@@ -21,7 +21,7 @@ export function FileDropZone({
     }
   };
 
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = (e: React.DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (!disabled && onDragLeave) {
@@ -29,7 +29,7 @@ export function FileDropZone({
     }
   };
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = (e: React.DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (disabled) return;
@@ -66,7 +66,7 @@ export function FileDropZone({
         isDragActive
           ? "border-primary bg-primary/5"
           : "border-border hover:border-primary/50 hover:bg-muted/50",
-        disabled && "opacity-50 cursor-not-allowed",
+        disabled && "opacity-50 cursor-not-allowed"
       )}
       aria-label="Upload a video by dragging and dropping or selecting from your device"
       disabled={disabled}
